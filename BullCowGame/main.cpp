@@ -10,11 +10,42 @@
 
 using namespace std;
 
+// function prototypes
+void PrintIntro();
+string GetGuessAndPrintBack();
+
+// entry point for our application
 int main() {
     
-    constexpr int WORD_LENGTH = 5;
+    PrintIntro();
     
+    // loop for the number of turns asking for guesses
+    constexpr int NUMBER_OF_TURNS  = 5;
+    for(int i = 0; i < NUMBER_OF_TURNS; i++)
+    {
+        GetGuessAndPrintBack();
+        cout << endl;
+    }
+    
+    return 0;
+}
+
+// introduce the game
+void PrintIntro()
+{
+    constexpr int WORD_LENGTH = 5;
     cout << "Welcome to Bulls and Cows, a fun word game." << endl;
     cout << "Can you guess the " << WORD_LENGTH << " letter isogram I'm thinking of? \n";
-    return 0;
+    return;
+}
+
+string GetGuessAndPrintBack()
+{
+    // get a guess from the player
+    string Guess = "";
+    getline(cin, Guess);
+    
+    // repeat the guess back
+    cout << "Your guess was: " << Guess << endl;
+    return Guess;
 }
