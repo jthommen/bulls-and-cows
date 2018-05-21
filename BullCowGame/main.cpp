@@ -8,8 +8,13 @@
 
 #include <iostream>
 
-int main(int argc, const char * argv[]) {
-    // insert code here...
-    std::cout << "Hello, World!\n";
+using namespace std;
+
+int main() {
+    
+    constexpr int WORD_LENGTH = 5;
+    
+    cout << "Welcome to Bulls and Cows, a fun word game." << endl;
+    cout << "Can you guess the " << WORD_LENGTH << " letter isogram I'm thinking of? \n";
     return 0;
 }
