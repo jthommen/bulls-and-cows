@@ -9,24 +9,35 @@
 #pragma once
 #include <string>
 
-class FBullCowGame {
+using FString = std::string;
+using int32 = int;
+
+struct FBullCowCount
+{
+    int32 Bulls = 0;
+    int32 Cows = 0;
+};
+
+class FBullCowGame
+{
 public:
     
     FBullCowGame(); // constructor
     
-    int GetMaxTries() const;
-    int GetCurrentTry() const;
+    int32 GetMaxTries() const;
+    int32 GetCurrentTry() const;
     bool IsGameWon() const;
     
     void Reset();
-    bool CheckGuessValidity(std::string);
-    // provide method for counting bulls and cows & incrementing turn number
+    bool CheckGuessValidity(FString);
+    FBullCowCount SubmitGuess(FString);
     
     
     
 private:
     
     // see constructor for initialization
-    int MyCurrentTry;
-    int MyMaxTries;
+    int32 MyCurrentTry;
+    int32 MyMaxTries;
+    FString MyHiddenWord;
 };
