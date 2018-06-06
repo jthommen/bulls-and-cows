@@ -18,6 +18,16 @@ struct FBullCowCount
     int32 Cows = 0;
 };
 
+// Enums have 'global scope' within enums except strongly typed with 'class'
+enum class EGuessStatus
+{
+    Invalid_Status,
+    OK,
+    Not_Isogram,
+    Wrong_Length,
+    Not_Lowercase
+};
+
 class FBullCowGame
 {
 public:
@@ -29,10 +39,10 @@ public:
     int32 GetHiddenWordLength() const;
     
     bool IsGameWon() const;
-    bool CheckGuessValidity(FString) const;
+    EGuessStatus CheckGuessValidity(FString) const;
 
     void Reset();
-    FBullCowCount SubmitGuess(FString);
+    FBullCowCount SubmitValidGuess(FString);
     
     
     
