@@ -5,10 +5,15 @@
 //  Created by Juri Thommen on 30/05/2018.
 //  Copyright © 2018 Aetherwings. All rights reserved.
 //
+/* The game logic (no view code or direct user interaction)
+ The game is a simple guess the word game based on Mastermind
+ */
 
 #pragma once
+
 #include <string>
 
+// Mmake syntax Unreal friendly
 using FString = std::string;
 using int32 = int;
 
@@ -44,12 +49,13 @@ public:
     void Reset();
     FBullCowCount SubmitValidGuess(FString);
     
-    
-    
 private:
     
     // see constructor for initialization
     int32 MyCurrentTry;
-    int32 MyMaxTries;
     FString MyHiddenWord;
+    bool bGameIsWon;
+    
+    bool IsIsogram(FString) const;
+    bool IsLowercase(FString) const;
 };
